@@ -18,19 +18,29 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "userLoggedIn") == true{
+            self.performSegue(withIdentifier: "LoginSegue", sender: nil)
+            
+        }
+    }
     
     @IBAction func onSignIn(_ sender: Any) {
         let username = usernameField.text!
         let password = passwordField.text!
-        PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) in
+        PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) -> Void in
             if user != nil{
+                UserDefaults.standard.setValue(true, forKey: "userLoggedIn")
                 self.performSegue(withIdentifier: "LoginSegue", sender: nil)
             }else {
                 print("Error \(error?.localizedDescription)")
                 
         }
+            
         }
+     
+        
+        
     }
     
     @IBAction func onSignUp(_ sender: Any) {
@@ -39,6 +49,7 @@ class LoginViewController: UIViewController {
         user.password = passwordField.text
         user.signUpInBackground{ (success, error) in
             if success{
+                UserDefaults.standard.set(true, forKey: "userloggedIn")
                 self.performSegue(withIdentifier: "LoginSegue", sender: nil)
             }else {
                 print("Error \(error?.localizedDescription)")
