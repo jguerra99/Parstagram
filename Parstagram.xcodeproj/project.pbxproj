@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		258BB396B8F07445A03D596E /* Pods_ParstagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 734CC6E4FBB88691AD698A88 /* Pods_ParstagramTests.framework */; };
 		594DA49A9CF20BCCA0FB2E5D /* Pods_Parstagram_ParstagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C32754897AA9A78C2827E42 /* Pods_Parstagram_ParstagramUITests.framework */; };
+		D406013927DDB2CA000A0261 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D406013827DDB2CA000A0261 /* SignUpViewController.swift */; };
+		D406013B27DE420A000A0261 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D406013A27DE420A000A0261 /* PostCell.xib */; };
+		D406013F27DE7B7F000A0261 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D406013E27DE7B7F000A0261 /* ProfileViewController.swift */; };
 		D43A2CE02602495200109B12 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43A2CDF2602495200109B12 /* PostCell.swift */; };
 		D451254125FFF8510054A173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D451254025FFF8510054A173 /* AppDelegate.swift */; };
 		D451254325FFF8510054A173 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D451254225FFF8510054A173 /* SceneDelegate.swift */; };
@@ -48,6 +51,9 @@
 		734CC6E4FBB88691AD698A88 /* Pods_ParstagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParstagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8403E8A453615E69308AB206 /* Pods-ParstagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParstagramTests.debug.xcconfig"; path = "Target Support Files/Pods-ParstagramTests/Pods-ParstagramTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8B2AA22D0B534C48497ED877 /* Pods-Parstagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parstagram.debug.xcconfig"; path = "Target Support Files/Pods-Parstagram/Pods-Parstagram.debug.xcconfig"; sourceTree = "<group>"; };
+		D406013827DDB2CA000A0261 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		D406013A27DE420A000A0261 /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		D406013E27DE7B7F000A0261 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D43A2CDF2602495200109B12 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		D451253D25FFF8510054A173 /* Parstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D451254025FFF8510054A173 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +151,9 @@
 				D4A6223425FFFC950061DF41 /* FeedViewController.swift */,
 				D4A622392601596B0061DF41 /* CameraViewController.swift */,
 				D43A2CDF2602495200109B12 /* PostCell.swift */,
+				D406013827DDB2CA000A0261 /* SignUpViewController.swift */,
+				D406013A27DE420A000A0261 /* PostCell.xib */,
+				D406013E27DE7B7F000A0261 /* ProfileViewController.swift */,
 			);
 			path = Parstagram;
 			sourceTree = "<group>";
@@ -188,7 +197,7 @@
 				D451253925FFF8510054A173 /* Sources */,
 				D451253A25FFF8510054A173 /* Frameworks */,
 				D451253B25FFF8510054A173 /* Resources */,
-				3C1E5C18D21BEDD14209F3EF /* [CP] Embed Pods Frameworks */,
+				2433249DAAE9E78456AF73B6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -226,7 +235,7 @@
 				D451255A25FFF8560054A173 /* Sources */,
 				D451255B25FFF8560054A173 /* Frameworks */,
 				D451255C25FFF8560054A173 /* Resources */,
-				4D0B27A606B63D2F08F81B36 /* [CP] Embed Pods Frameworks */,
+				30FE6C55445B27ADD4491E8A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -288,6 +297,7 @@
 				D451254D25FFF8550054A173 /* LaunchScreen.storyboard in Resources */,
 				D451254A25FFF8550054A173 /* Assets.xcassets in Resources */,
 				D451254825FFF8510054A173 /* Main.storyboard in Resources */,
+				D406013B27DE420A000A0261 /* PostCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +362,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3C1E5C18D21BEDD14209F3EF /* [CP] Embed Pods Frameworks */ = {
+		2433249DAAE9E78456AF73B6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -369,7 +379,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Parstagram/Pods-Parstagram-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4D0B27A606B63D2F08F81B36 /* [CP] Embed Pods Frameworks */ = {
+		30FE6C55445B27ADD4491E8A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -416,10 +426,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4A6223025FFFC820061DF41 /* LoginViewController.swift in Sources */,
+				D406013927DDB2CA000A0261 /* SignUpViewController.swift in Sources */,
 				D4A6223A2601596B0061DF41 /* CameraViewController.swift in Sources */,
 				D451254125FFF8510054A173 /* AppDelegate.swift in Sources */,
 				D4A6223525FFFC950061DF41 /* FeedViewController.swift in Sources */,
 				D451254325FFF8510054A173 /* SceneDelegate.swift in Sources */,
+				D406013F27DE7B7F000A0261 /* ProfileViewController.swift in Sources */,
 				D43A2CE02602495200109B12 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,6 +610,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GCTGPGYAR5;
 				INFOPLIST_FILE = Parstagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -617,6 +630,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GCTGPGYAR5;
 				INFOPLIST_FILE = Parstagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -636,6 +650,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GCTGPGYAR5;
 				INFOPLIST_FILE = ParstagramTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -658,6 +673,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GCTGPGYAR5;
 				INFOPLIST_FILE = ParstagramTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -679,6 +695,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GCTGPGYAR5;
 				INFOPLIST_FILE = ParstagramUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -699,6 +716,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GCTGPGYAR5;
 				INFOPLIST_FILE = ParstagramUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

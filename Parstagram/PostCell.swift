@@ -6,18 +6,23 @@
 //
 
 import UIKit
+import Parse
 
 class PostCell: UITableViewCell {
-
+    @objc var posts = [PFObject]()
     @IBOutlet weak var photoView: UIImageView!
     
     @IBOutlet weak var usernameLabel: UILabel!
     
     @IBOutlet weak var captionLabel: UILabel!
+    
     override func awakeFromNib() {
+        
         super.awakeFromNib()
+        self.selectionStyle = .none
         // Initialization code
     }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

@@ -15,7 +15,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.hideKeyboardWhenTappedAround()
+    
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -33,7 +34,7 @@ class LoginViewController: UIViewController {
                 UserDefaults.standard.setValue(true, forKey: "userLoggedIn")
                 self.performSegue(withIdentifier: "LoginSegue", sender: nil)
             }else {
-                print("Error \(error?.localizedDescription)")
+                print("Error")
                 
         }
             
@@ -44,18 +45,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onSignUp(_ sender: Any) {
-        let user = PFUser()
-        user.username = usernameField.text
-        user.password = passwordField.text
-        user.signUpInBackground{ (success, error) in
-            if success{
-                UserDefaults.standard.set(true, forKey: "userloggedIn")
-                self.performSegue(withIdentifier: "LoginSegue", sender: nil)
-            }else {
-                print("Error \(error?.localizedDescription)")
-            }
-            
-        }
+        
+        self.performSegue(withIdentifier: "SignUpSegue", sender: nil)
+        
     }
     /*
     // MARK: - Navigation
@@ -67,4 +59,15 @@ class LoginViewController: UIViewController {
     }
     */
 
+}
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

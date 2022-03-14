@@ -29,7 +29,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         let imageData = imageView.image!.pngData()
         let file = PFFileObject(name: "image.png", data: imageData!)
         post["image"] = file
-            post.saveInBackground(block: { (success, error) in
+        post.saveInBackground(block: { (success, error) in
                 if success{
                     self.dismiss(animated: true, completion: nil)
                     print("saved!")
@@ -44,11 +44,12 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         picker.delegate = self
         picker.allowsEditing = true
         if UIImagePickerController.isSourceTypeAvailable(.camera){
+            picker.delegate = self
         picker.sourceType = .camera
     }else {
         picker.sourceType = .photoLibrary
     }
-        present(picker, animated: true, completion: nil)
+        self.present(picker, animated: true, completion: nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.editedImage] as! UIImage
