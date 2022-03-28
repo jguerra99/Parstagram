@@ -31,7 +31,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         post["image"] = file
         post.saveInBackground(block: { (success, error) in
                 if success{
-                    self.dismiss(animated: true, completion: nil)
+
                     print("saved!")
                 }else {
                     print("erro!")
@@ -55,7 +55,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         let image = info[.editedImage] as! UIImage
         
         let size = CGSize(width: 300, height: 300)
-        let scaledImage = image.af.imageScaled(to: size)
+        let scaledImage = image.af.imageAspectScaled(toFill: size)
         imageView.image = scaledImage
         dismiss(animated: true, completion: nil)
     }
